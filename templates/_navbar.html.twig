@@ -1,0 +1,30 @@
+{% block body %}
+
+		{# header #}
+		
+
+			<div id="menu-btn" class="fas fa-bars"></div>
+
+			<a href="#"><img class="logo" src="{{ asset('asset/image/logo3.png') }}" alt="Hostinger"></a>
+		
+
+		<nav class="navbar">
+			{% if is_granted('ROLE_ADMIN')==true %}
+				<a href="{{ path('app_admin_general') }}">ADMIN</a>
+			{% endif %}
+			<a class="menu" href="{{ path('app_accueil') }}">ACCUEIL</a>
+			<a class="menu" href="{{ path('app_maquillage') }}">MAQUILLAGE</a>
+			<a class="menu" href="{{ path('app_parfum') }}">PARFUMS</a>
+			<a class="menu" href="{{ path('app_contact') }}">contact</a>
+			<a class="menu" href="{{ path('app_cart_view') }}"><i class="fa-solid fa-basket-shopping "></i></a>
+			<a class="menu" href="{{ path('app_logout') }}"><i class="fa-solid fa-right-from-bracket "></i></a>
+		</nav>
+		<div id="login-btn">
+		
+			<button class="btn"><a href="{{ path('app_client_show') }}">login</a></button>
+			<a  href="{{ path('app_client_show') }}"><i class="far fa-user"></i></a>
+			
+			
+        </div>
+		
+		{% endblock %}

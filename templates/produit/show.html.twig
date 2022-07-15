@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit
+{% endblock %}
+{% block body %}
+
+	<section class="about">
+		<div class="about-1">
+			{# <header class="about_header">
+
+				<h2 class="title-single">{{ produit.titreProduit }}</h2>
+			</header> #}
+			<figure class="about_figure">
+				<img class="img-single" src="{{asset('upload/' ~ produit.imageProduit ) }}" alt="produit">
+			</figure>
+		</div>
+		<div class="about-2">
+			<article class="about_article">
+				<header class="header_article">
+					<h3 class="titre-produit">{{ produit.titreProduit }}</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star-half-alt"></i>
+					</div>
+				</header>
+				<br><br>
+				<ul>
+					<li>
+
+						<span id="prix">Prix:
+							{{ produit.prixProduit }}</span>
+					</li>
+					<br><br>
+					<br>
+					<li>
+						<span class="desc">description :{{ produit.descProduit }}</span>
+					</li>
+
+				</ul>
+				<p class="button">
+					<a href="{{ path('app_cart', {'id': produit.id}) }}">ajouter au panier</a>
+				</p>
+			</article>
+		</div>
+	</section>
+<br><br><br><br>
+	<section class="reviews" id="reviews">
+
+		<h1 class="heading">
+			Avis
+			<span>Clients</span>
+		</h1>
+
+		<div class="swiper review-slider">
+
+			<div class="swiper-wrapper">
+
+				<div class="swiper-slide box">
+					<img src="{{ asset('asset/image/pic-1.png') }}" alt="">
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+						<h3>john deo</h3>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="swiper-slide box">
+					<img src="{{ asset('asset/image/pic-2.png') }}" alt="">
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+						<h3>john deo</h3>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide box">
+					<img src="{{ asset('asset/image/pic-3.png') }}" alt="">
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+						<h3>john deo</h3>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide box">
+					<img src="{{ asset('asset/image/pic-4.png') }}" alt="">
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+						<h3>john deo</h3>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="swiper-pagination"></div>
+
+		</div>
+
+	</section>
+{% endblock %}

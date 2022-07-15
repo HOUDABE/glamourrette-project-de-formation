@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block titre %}paiement| GLAMOURRETTE | maquillage | beauté | YEUX| LEVRES| TIENT {% endblock %}
+{% block body %}
+	<br><br><br><br>
+	<div class="containerr">
+
+		<form id="payment-form" action="">
+
+			<div class="row">
+				<div class="col">
+
+					<h3 class="title">Adresse de facturation</h3>
+
+					<div class="inputBox">
+						<span>Nom et Prenom :</span>
+						<input type="text" placeholder="kabli houda">
+					</div>
+					<div class="inputBox">
+						<span>email :</span>
+						<input type="email" placeholder="example@example.com">
+					</div>
+					<div class="inputBox">
+						<span>address :</span>
+						<input type="text" placeholder="xxx">
+					</div>
+					<div class="inputBox">
+						<span>ville :</span>
+						<input type="text" placeholder="juvisy">
+					</div>
+
+					<div class="flex">
+						<div class="inputBox">
+							<span>Pays :</span>
+							<input type="text" placeholder="France">
+						</div>
+						<div class="inputBox">
+							<span>code :</span>
+							<input type="text" placeholder="91260">
+						</div>
+
+
+					</div>
+
+					<div class="col">
+
+						<h3 class="title">payment</h3>
+
+						<div
+							id="payment-element"><!--Stripe.js injects the Payment Element-->
+						</div>
+						<div id="error-message"></div>
+						<button id="submit" class="btn btn-success">
+							<div class="spinner hidden" id="spinner"></div>
+							<span id="button-text">Valaider la commande</span>
+						</button>
+						<div id="payment-message" class="hidden"></div>
+					</div>
+				</div>
+        
+
+			</form>
+       	</div>
+		</div>
+	{% endblock %}
+
+
+	{% block javascripts %}
+		<script src="https://js.stripe.com/v3/"></script>
+
+
+		<script>
+			// This is your test publishable API key.
+const stripe = Stripe("pk_test_51KquN7ClMtefmikmqt4l13PHWqm5sXNJbEBGKCrpOXbru6Lh8eYMhOrT4umfmkkWOkyxbqejiPCZZ2q0hE3FNiGN00Pn1LsY5h");
+
+
+const options = {
+clientSecret: '{{ clientSecret }}'
+};
+// Set up Stripe.js and Elements to use in checkout form, passing the client secret obtained in step 2
+const elements = stripe.elements(options);
+// Create and mount the Payment Element
+const paymentElement = elements.create('payment');
+paymentElement.mount('#payment-element');
+
+const form = document.getElementById('payment-form');
+form.addEventListener('submit', async (event) => {
+event.preventDefault();
+const {error} = await stripe.confirmPayment({
+// Elements instance that was used to create the Payment Element
+// http://127.0.0.1:8000/purchase/payment/success/
+elements,
+confirmParams: {
+return_url: "{{ url('app_paiement_reussi') }}"
+}
+});
+if (error) {
+// This point will only be reached if there is an immediate error when
+// confirming the payment. Show error to your customer (for example, payment
+// details incomplete)
+const messageContainer = document.querySelector('#error-message');
+messageContainer.textContent = error.message;
+} else {
+// Your customer will be redirected to your return_url. For some payment
+// methods like iDEAL, your customer will be redirected to an intermediate
+// site first to authorize the payment, then redirected to the return_url.
+}
+});
+		</script>
+
+	{% endblock %}

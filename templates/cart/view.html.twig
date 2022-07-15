@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GLAMOURRETTE | maquillage | beauté | YEUX| LEVRES| TIENT | Parfum |FEMME|Homme
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<h1>glamourette- panier</h1>
+
+		<div class="cart">
+		         	{% if rows is defined %}
+				<div class="products">
+
+				          	{% for row in rows %}
+						<div class="product">
+							<img src="{{asset('upload/' ~ row.product.imageProduit ) }}" alt="Hostinger">
+
+							<div class="product-info">
+
+								<h3 class="product-name">{{ row.product.titreProduit }}</h3>
+
+								<h4 class="product-price">{{ row.quantite * row.product.prixProduit }}$</h4>
+
+
+									<div class="quantity">
+										
+
+										<a href="{{ path('app_remove', {'id': row.product.id}) }}">
+											<i class="fas fa-minus-square"></i>
+										</a>
+										<span>{{ row.quantite  }}</span>
+
+										<a href="{{ path('app_cart', {'id': row.product.id}) }}">
+											<i class="fas fa-plus-square"></i>
+										</a>
+
+									</div>
+								<p class="product-remove">
+
+									<a class="remove" id="1" href="{{ path('app_remove', {'id': row.product.id}) }}">
+										<i class="fa-solid fa-trash-can"></i>
+									</a>
+
+									<span class="remove">Remove</span>
+
+								</p>
+
+
+							</div>
+						</div>
+					
+
+				{% endfor %}
+				</div>
+
+
+				<div class="cart-total">
+
+					<p>
+
+						<span>Total Price</span>
+
+						<span>{{ total|number_format(0, ',', ' ') }}€</span>
+					</p>
+
+					
+					<a href="{{ path('app_cart_clear') }}">Vider le panier</a>
+
+				</div>
+			{% endif %}
+         
+		</div>
+                          <a class="btn"  href="{{ path('app_paiement') }}">Valider Votre Panier</a>
+	</div>
+
+
+{% endblock %}

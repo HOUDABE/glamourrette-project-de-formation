@@ -1,0 +1,244 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+	{# home section #}
+	<section class="acceuil" id="acceuil">
+		<div class="box-acceuil">
+			<span style="--i:1;"><img class="home_img" src="{{ asset('asset/image/1.jpg') }}" alt="Hostinger"></span>
+			<span style="--i:2;"><img class="home_img" src="{{ asset('asset/image/2.jpg') }}" alt="Hostinger"></span>
+			<span style="--i:3;"><img class="home_img" src="{{ asset('asset/image/33.png') }}" alt="Hostinger"></span>
+			<span style="--i:4;"><img class="home_img" src="{{ asset('asset/image/44.png') }}" alt="Hostinger"></span>
+			<span style="--i:5;"><img class="home_img" src="{{ asset('asset/image/55.png') }}" alt="Hostinger"></span>
+			<span style="--i:6;"><img class="home_img" src="{{ asset('asset/image/66.png') }}" alt="Hostinger"></span>
+			<span style="--i:7;"><img class="home_img" src="{{ asset('asset/image/7.jpg') }}" alt="Hostinger"></span>
+			<span style="--i:8;"><img class="home_img" src="{{ asset('asset/image/88.png') }}" alt="Hostinger"></span>
+			<span style="--i:9;"><img class="home_img" src="{{ asset('asset/image/9.png') }}" alt="Hostinger"></span>
+			<span style="--i:10;"><img class="home_img" src="{{ asset('asset/image/100.png') }}" alt="Hostinger">
+			</span>
+			<span style="--i:11;"><img class="home_img" src="{{ asset('asset/image/111.png') }}" alt="Hostinger"></span>
+		</div>
+	</section>
+	{# FIN SECTION image ACCUEIL #}
+
+	{#======= les categories========== #}
+
+	<section class="icons-container">
+
+		<div class="icons">
+			<a href="{{ path('app_teint') }}"><img src="{{ asset('asset/image/fond.png') }}" alt=""></a>
+			<div class="content">
+				<h3>Tient</h3>
+			</div>
+		</div>
+
+		<div class="icons">
+			<a href="{{ path('app_levres') }}"><img src="{{ asset('asset/image/levre.png') }}" alt=""></a>
+			<div class="content">
+				<h3>Lévres</h3>
+			</div>
+		</div>
+
+		<div class="icons">
+			<a  href="{{ path('app_yeux') }}"><img src="{{ asset('asset/image/yeux.png') }}" alt=""></a>
+			<div class="content">
+				<h3>Yeux</h3>
+			</div>
+		</div>
+
+		<div class="icons">
+			<a  href="{{ path('app_ongles') }}"><img src="{{ asset('asset/image/vernis.png') }}" alt=""></a>
+			<div class="content">
+				<h3>Ongles</h3>
+			</div>
+		</div>
+		
+	</section>
+
+	<section class="icons-container">
+
+    <div class="icons">
+        	<a href="{{ path('app_parfum_femme') }}" > <img  class="" src="{{ asset('asset/image/pf.png') }}" alt=""></a>
+        <div class="content">
+            <h3>Parfum Femme</h3>
+           
+        </div>
+    </div>
+
+    <div class="icons">
+       	<a href="{{ path('app_coffret_parfum') }}" > <img class="" src="{{ asset('asset/image/pc.png') }}" alt=""></a>
+        <div class="content">
+            <h3>Parfum Homme</h3>
+        </div>
+    </div>
+
+    <div class="icons">
+        <a href="{{ path('app_parfum_homme') }}" > <img class="categories" src="{{ asset('asset/image/pph.png') }}" alt=""></a>
+        <div class="content">
+            <h3>Coffret Parfum</h3>
+        </div>
+    </div>
+
+
+		
+
+</section>
+	{#=======Fin les categories========== #}
+
+
+	{#========= produits================= #}
+	<section class="produits" id="produits">
+		<h1 class="heading">Nouveaux<span>arrivages</span>
+		</h1>
+		<div class="swiper produit-slider">
+
+			<div class="swiper-wrapper">
+				{% for produit in produits %}
+					<div class="swiper-slide box">
+						<img src="{{asset('upload/' ~ produit.imageProduit )}}" alt="">
+						<div class="content">
+							
+							<h3>
+									<a href="{{ path('app_produit_show', {'id': produit.id}) }}">{{ produit.titreProduit }}</a>
+								</h3>
+							<div class="price">
+								<span>price :
+								</span>{{ produit.prixProduit }} €
+							</div>
+							
+							<a  href="{{ path('app_cart', {'id': produit.id}) }}"  class="btn">Panier</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="swiper-pagination"></div>
+
+		</div>
+
+	</section>
+</section>
+{#=========Fin produits================= #}
+{#=========arrivage================= #}
+<section class="findall" id="findall">
+
+	<h1 class="heading">
+		<span>Produit</span>
+		recommandé
+	</h1>
+
+	<div class="swiper findall-slider">
+
+		<div class="swiper-wrapper">
+			{% for produit in produits %}
+				<div class="swiper-slide box">
+
+					<img src="{{asset('upload/' ~ produit.imageProduit )}}" alt="">
+					<div class="content">
+						<h3>
+							<a href="{{ path('app_produit_show', {'id': produit.id}) }}">{{ produit.titreProduit }}</a>
+						</h3>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+						<div class="price">${{ produit.prixProduit }}€</div>
+						<a  href="{{ path('app_cart', {'id': produit.id}) }}"  class="btn">Panier</a>
+					</div>
+				</div>
+			{% endfor %}
+
+
+		</div>
+
+		<div class="swiper-pagination"></div>
+
+	</div>
+
+</section>
+{#=========FIN arrivage================= #}
+{#=========reviews================= #}
+
+<section class="reviews" id="reviews">
+
+	<h1 class="heading">
+		Avis
+		<span>Clients</span>
+	</h1>
+
+	<div class="swiper review-slider">
+
+		<div class="swiper-wrapper">
+
+			<div class="swiper-slide box">
+				<img src="{{ asset('asset/image/pic-1.png') }}" alt="">
+				<div class="content">
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+					<h3>john deo</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star-half-alt"></i>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="swiper-slide box">
+				<img src="{{ asset('asset/image/pic-2.png') }}" alt="">
+				<div class="content">
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+					<h3>john deo</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star-half-alt"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="swiper-slide box">
+				<img src="{{ asset('asset/image/pic-3.png') }}" alt="">
+				<div class="content">
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+					<h3>john deo</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star-half-alt"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="swiper-slide box">
+				<img src="{{ asset('asset/image/pic-4.png') }}" alt="">
+				<div class="content">
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+					<h3>john deo</h3>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star-half-alt"></i>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="swiper-pagination"></div>
+
+	</div>
+
+</section>
+{#=========FIN reviews================= #}</body>{% endblock %}

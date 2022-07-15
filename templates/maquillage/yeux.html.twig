@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}GLAMOURRETTE | maquillage | beauté | YEUX| LEVRES| TIENT {% endblock %}
+
+{% block body %}
+<section class="home" id="home">
+
+    <img data-speed="5" class="home-parallax" src="{{ asset('asset/image/Palette.png') }}" alt="">
+	 <h3 data-speed="-2" class="heading" data-speed="-2">MAKEUP  <span>YEUX</span></h3>
+						
+</section>
+<section class="tient">
+			
+			<div class="tient-container">
+
+				<div class="tient-bloc">
+					{% for produit in produits %}
+						<div class="box-tient">
+
+								 <img src="{{asset('upload/' ~ produit.imageProduit )}}" alt="">
+							<div class="content">
+								<h3>
+									<a href="{{ path('app_produit_show', {'id': produit.id}) }}">{{ produit.titreProduit }}</a>
+								</h3>
+								<div class="stars">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star-half-alt"></i>
+								</div>
+								<div class="price">{{ produit.prixProduit }}€</div>
+								<a href="{{ path('app_cart', {'id': produit.id}) }}" class="btn">
+									Panier</a>
+							</div>
+						</div>
+					{% endfor %}
+
+
+				</div>
+
+
+			</div>
+
+
+		</section>
+
+{% endblock %}

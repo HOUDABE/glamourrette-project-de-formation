@@ -1,0 +1,270 @@
+
+
+
+  /* ***********LES TITRES****************** */
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    padding: 50px 0;
+    margin: auto;
+}
+
+.pb-40 {
+    width: 40%;
+}
+
+.pb-70 {
+    width: 70%;
+}
+
+.pb-75 {
+    width: 75%;
+}
+
+.pb-80 {
+    width: 80%;
+}
+
+.pb-90 {
+    width: 90%;
+}
+
+@media screen and (min-width:1024px) {
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:1024px) {m
+    .container {
+        width: 80%;
+        margin-left: 20%;
+    }
+}
+
+.sub_title {
+    font-size: 28px;
+    color: #29A19C;
+    text-transform:uppercase;
+    font-weight: 500;
+    margin: .5rem;
+}
+
+.title {
+    text-transform: capitalize;
+    color: #222831;
+    font-size: 44px;
+    font-weight: 900;
+    margin: .5rem;
+}
+
+.green {
+    color: #29A19C;
+}
+
+/* HEADER MOBILE */ 
+
+.section_header_site {
+    width: 100%;
+    padding: 1.5rem 5%;
+    background-color: #222831;
+    color: #FFFFFF;
+}
+
+.section_header_site figure {
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+}
+
+.nav_header_site {
+    width: 100%;
+}
+
+.nav_header_site .menu_header_site {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav_header_site .menu_header_site .item_menu_header_site a {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    transition: .5s;
+    
+}
+
+.nav_header_site .menu_header_site .item_menu_header_site a:hover {
+    color: #29A19C;
+    
+}
+
+.header_site .icones_header_site {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.8rem;
+}
+
+.header_site .icones_header_site li i {
+    transition: .8s;
+}
+
+.header_site .icones_header_site li i:hover {
+    transform: rotate(360deg) scale(1.5);
+}
+
+.hero {
+    width: 100%;
+    background: url(../image/text.webp) no-repeat;
+  
+    background-size: cover;
+    background-position: center center;
+    padding: 10% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #ffffff;
+}
+
+.hero .hero_texte {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero figure, .hero figure img {
+    border-radius: 50%;
+}
+
+.hero figure {
+    width: 33%;
+    margin: auto;
+}
+
+.hero .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.hero p:nth-child(2) {
+    font-weight: 900;
+    font-size: 24px;
+    margin: .6rem;
+
+}
+
+.hero p:nth-child(3) {
+    font-weight: 900;
+    font-size: 24px;
+    color: #29A19C;
+    margin: 0.6rem;
+}
+
+.hero p:nth-child(4) {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0.6rem;
+}
+
+/* HEADER TABLETTE */
+@media screen and (min-width:768px) {
+    .hero p:nth-child(2) {
+    font-size: 48px;
+    }
+
+    .hero p:nth-child(3) {
+        font-size: 48px;
+    }
+
+    .hero p:nth-child(4) {
+        font-size: 24px;
+    }
+}
+
+/* HEADER FORMAT GRAND ECRAN */ 
+
+@media screen and (min-width:1024px) {
+    .header_site {
+        display: flex;
+        justify-content: space-between;
+        height: 100vh;
+    }
+
+    .section_header_site figure {
+        margin: 20px 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .header_site .section_header_site {
+        width: 15%;
+        height: 100vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+
+    .menu_header_site {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 30vh;
+        
+    }
+
+    .menu_header_site .item_menu_header_site a {
+    font-size: 2rem;
+    }
+
+    .hero {
+        width: 100%;
+        margin-left: 15%;
+    }
+}
+
+.client{
+ 
+   padding: 50px 150px 50px 250px;
+   width: 100%;
+}
+table{
+    border-collapse: collapse;
+  }
+  
+  th, td{
+    border: 1px solid black;
+    padding: 10px;
+  }
+ 
+  h1 .titreGestion{
+    text-transform: capitalize;
+    color: #222831;
+    font-size: 44px;
+    font-weight: 900;
+    margin: .5rem;
+  }

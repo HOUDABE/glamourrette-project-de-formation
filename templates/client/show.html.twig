@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client| GLAMOURRETTE | maquillage | beauté | YEUX| LEVRES| TIENT | Parfum |FEMME|Homme
+{% endblock %}
+
+{% block body %}
+
+	<header class="container-fluid p-5 text-center bg-light">
+		<br><br><br>
+
+		<h1>GLAMOURRETTE - Bonjour Mme/Me
+			{{ client.nomClient }}
+			{{ client.prenomClient }}
+		</h1>
+
+
+	</header>
+	<section class="info">
+		<h2>Mes coordonnées</h2>
+        <br><br>
+		<ul class="list-group">
+			<li class="list-group-item list-group-item-secondary"> Numéro de client : {{ client.id }} </li>
+			<li class="list-group-item list-group-item-secondary"> NOM  : {{ client.nomClient }} </li>
+			<li class="list-group-item list-group-item-secondary"> PRENOM  : {{ client.prenomClient }} </li>
+			<li class="list-group-item list-group-item-secondary"> EMAIL  : {{ client.email }} </li>
+		</ul>
+
+        <a class="btn" href="{{ path('app_logout') }}"><i class="fa-solid fa-right-from-bracket "></i></a>
+	</section>
+
+
+{% endblock %}

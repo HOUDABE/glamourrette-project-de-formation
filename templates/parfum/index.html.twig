@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block titre %}GLAMOURRETTE | maquillage | beauté | parfum homme|parfum femme {% endblock %}
+
+{% block body %}
+	<section class="maquillage parfum" id="maquillage parfum">
+		<div class="move">
+
+			<video src="{{ asset('asset/image/vedio1.mp4') }}" autoplay muted loop></video>
+			<span class="titre-1">Les plus grandes marques </span><br>
+			<span class="titre-1">de parfum les plus</span><br>
+			<span class="titre-1">populaires</span>
+		</div>
+	</section>
+    <br><br><br>
+<section class="icons-container">
+
+    <div class="icons">
+        	<a href="{{ path('app_parfum_femme') }}" > <img  class="" src="{{ asset('asset/image/pf.png') }}" alt=""></a>
+        <div class="content">
+            <h3>Parfum Femme</h3>
+           
+        </div>
+    </div>
+
+    <div class="icons">
+       	<a href="{{ path('app_coffret_parfum') }}" > <img class="" src="{{ asset('asset/image/pc.png') }}" alt=""></a>
+        <div class="content">
+            <h3>Coffret Parfum</h3>
+        </div>
+    </div>
+
+    <div class="icons">
+        <a href="{{ path('app_parfum_homme') }}" > <img class="categories" src="{{ asset('asset/image/pph.png') }}" alt=""></a>
+        <div class="content">
+            <h3>Parfum Homme</h3>
+        </div>
+    </div>
+
+   
+    </div>
+    
+		
+		
+
+</section>
+{#========= produits================= #}
+       <section class="findall" id="findall">
+
+    <h1 class="heading"> <span>Nos</span> parfums </h1>
+
+    <div class="swiper findall-slider">
+
+       <div class="swiper-wrapper">
+             {% for produit in produits %}
+            <div class="swiper-slide box">
+
+                 
+                  <a href="{{ path('app_produit_show', {'id': produit.id}) }}"> <img src="{{asset('upload/' ~ produit.imageProduit )}}" alt=""></a>
+                <div class="content">
+                    <h3><a href="{{ path('app_produit_show', {'id': produit.id}) }}">{{ produit.titreProduit }}</a></h3>
+                    
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">${{ produit.prixProduit }}/-</div>
+                    <a href="{{ path('app_cart', {'id': produit.id}) }}" class="btn">Panier</a>
+                </div>
+            </div>
+             {% endfor %}
+        
+
+        </div>
+ 
+        <div class="swiper-pagination"></div>
+ 
+     </div>
+
+</section>
+
+{% endblock %}

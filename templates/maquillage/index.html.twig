@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+{% block titre %}GLAMOURRETTE | maquillage | beauté | YEUX| LEVRES| TIENT {% endblock %}
+
+{% block body %}
+	<section class="maquillage parfum" id="maquillage parfum">
+		<div class="move">
+
+			<video src="{{ asset('asset/image/vedio.mp4') }}" autoplay muted loop></video>
+			<span class="titre-1">Glamourrette l'une des marques</span><br>
+			<span class="titre-1">les plus recommandées par les professionnels</span><br>
+
+		</div>
+	</section>
+<br><br>
+	<section class="icons-container">
+
+		<div class="icons">
+			<a href="{{ path('app_teint') }}"><img class="" src="{{ asset('asset/image/fond.png') }}" alt=""></a>
+			<div class="content">
+				<h3>TIENT</h3>
+
+			</div>
+		</div>
+
+		<div class="icons">
+			<a href="{{ path('app_levres') }}"><img class="" src="{{ asset('asset/image/levre.png') }}" alt=""></a>
+			<div class="content">
+				<h3>LEVRES</h3>
+			</div>
+		</div>
+
+		<div class="icons">
+			<a href="{{ path('app_yeux') }}"><img class="" src="{{ asset('asset/image/yeux.png') }}" alt=""></a>
+			<div class="content">
+				<h3>YEUX</h3>
+			</div>
+		</div>
+
+		<div class="icons">
+			<a href="{{ path('app_ongles') }}"><img class="" src="{{ asset('asset/image/vernis.png') }}" alt=""></a>
+			<div class="content">
+				<h3>ANGELES</h3>
+			</div>
+		</div>
+
+
+	</section>
+	{#========= produits================= #}
+	<section class="findall" id="findall">
+
+		<h1 class="heading">
+			<span>Nos</span>
+			Maquillages
+		</h1>
+
+		<div class="swiper findall-slider">
+
+			<div class="swiper-wrapper">
+				{% for produit in produits %}
+					<div class="swiper-slide box">
+
+
+						<a href="{{ path('app_produit_show', {'id': produit.id}) }}">
+							<img src="{{asset('upload/' ~ produit.imageProduit )}}" alt=""></a>
+						<div class="content">
+							<h3>
+								<a href="{{ path('app_produit_show', {'id': produit.id}) }}">{{ produit.titreProduit }}</a>
+							</h3>
+							<div class="stars">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star-half-alt"></i>
+							</div>
+							<div class="price">${{ produit.prixProduit }}/-</div>
+							<a href="{{ path('app_cart', {'id': produit.id}) }}" class="btn">Panier</a>
+						</div>
+					</div>
+				{% endfor %}
+
+
+			</div>
+
+			<div class="swiper-pagination"></div>
+
+		</div>
+
+	</section>
+
+{% endblock %}
