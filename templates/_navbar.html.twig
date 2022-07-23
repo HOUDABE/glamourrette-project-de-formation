@@ -1,13 +1,9 @@
 {% block body %}
 
-		{# header #}
-		
-
 			<div id="menu-btn" class="fas fa-bars"></div>
 
 			<a href="#"><img class="logo" src="{{ asset('asset/image/logo3.png') }}" alt="Hostinger"></a>
 		
-
 		<nav class="navbar">
 			{% if is_granted('ROLE_ADMIN')==true %}
 				<a href="{{ path('app_admin_general') }}">ADMIN</a>

@@ -1,40 +1,52 @@
 {{ include('admin/navAdmin.html.twig') }}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}Categorie index
+{% endblock %}
 
 {% block body %}
-  <section class="client">
-   
-     <h1 class="heading"> Gestions <span>Categories</span> </h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NomCategorie</th>
-                <th>TypeCategorie</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td>{{ categorie.id }}</td>
-                <td>{{ categorie.nomCategorie }}</td>
-                <td>{{ categorie.typeCategorie }}</td>
-                <td>
-                    <a href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="container p-6">
+		<section class="client">
 
-    <a href="{{ path('app_admin_categorie_new') }}">Create new</a>
-    </section>
+
+			<div class="row">
+				<div class="col-12 text-center mt-3 mb-5">
+					<h1>Gestions categories</h1>
+				</div>
+			</div>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>NomCategorie</th>
+						<th>TypeCategorie</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for categorie in categories %}
+						<tr>
+							<td>{{ categorie.id }}</td>
+							<td>{{ categorie.nomCategorie }}</td>
+							<td>{{ categorie.typeCategorie }}</td>
+							<td>
+								<a href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}">show</a>
+								<a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+
+			<button type="button" class="btn btn-outline-success">
+				<a href="{{ path('app_admin_categorie_new') }}">Create new</a>
+			</button>
+		</section>
+	</div>
 {% endblock %}

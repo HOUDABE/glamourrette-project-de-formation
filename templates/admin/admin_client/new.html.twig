@@ -3,9 +3,18 @@
 {% block title %}New Client{% endblock %}
 
 {% block body %}
-    <h1>Create new Client</h1>
+<div class="container p-6">
+   
+				<div class="col-12 text-center mt-3 mb-5">
+			 <h1>Create new Client</h1>
+				</div>
+   
 
     {{ include('admin/admin_client/_form.html.twig') }}
+     <button type="button" class="btn btn-outline-success">
+				      <a href="{{ path('app_admin_client_index') }}">back to list</a>
 
-    <a href="{{ path('app_admin_client_index') }}">back to list</a>
+			</button>
+
+    </div>
 {% endblock %}

@@ -3,10 +3,15 @@
 {% block title %}New Produit{% endblock %}
 
 {% block body %}
-<br><br><br><br><br>
-    <h1>Create new Produit</h1>
+<div class="container p-6">
+   
+				<div class="col-12 text-center mt-3 mb-5">
+				 <h1>Create new Produit</h1>
+				</div>
+   
 
     {{ include('admin/admin_produit/_form.html.twig') }}
 
     <a href="{{ path('app_admin_produit_index') }}">back to list</a>
+    </div>
 {% endblock %}

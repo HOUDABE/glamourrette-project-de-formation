@@ -60,13 +60,9 @@ class CartController extends AbstractController
         $panier_rempli = $cart->getFull();
         $total = $cart->getTotal();
 
+        return $this->redirectToRoute('app_maquillage');
 
-        return $this->render('cart/view.html.twig', [
-            'controller_name' => 'CartController',
-            'rows' => $panier_rempli,
-            'total' => $total
-
-        ]);
+        
     }
 
     /**

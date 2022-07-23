@@ -25,10 +25,10 @@ class AdminProduitController extends AbstractController
     #[Route('/new', name: 'app_admin_produit_new', methods: ['GET', 'POST'])]
     public function new(fileUploader  $fileUploader, Request $request, ProduitRepository $produitRepository): Response
     {
-        $produit = new Produit();
-        $form = $this->createForm(ProduitType::class, $produit);
-        $form->handleRequest($request);
-
+        $produit = new Produit();//on instancie la classe produit: devient un object
+        $form = $this->createForm(ProduitType::class, $produit);//on crée un formulaire a partir de la class ProduitType  
+        $form->handleRequest($request);//on demmande au formailaire de recuperer les données
+   //si le form est valaidé 
         if ($form->isSubmitted() && $form->isValid()) {
 
           
@@ -41,8 +41,8 @@ class AdminProduitController extends AbstractController
                     $produit->setImageProduit($FileName); // nom du fichier
                 }
 
-
-
+           //utilise le repository pour ajouter les infor dans entité article
+            //rediriger vers la fonction index 
             $produitRepository->add($produit);
             return $this->redirectToRoute('app_admin_produit_index', [], Response::HTTP_SEE_OTHER);
         }

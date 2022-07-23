@@ -171,7 +171,7 @@ section {
 }
 
 .icons-container {
-  margin-top: 5rem;
+  margin-top: 10rem;
   padding-bottom: 5rem;
   width: 100%;
   display: grid;
@@ -426,9 +426,10 @@ section {
   padding-top: 10rem;
   text-align: center;
   overflow-x: hidden;
+  margin-bottom: 12rem;
 }
 
-video {
+.move  video {
   position: absolute;
   top: 30px;
   bottom: 0;
@@ -439,6 +440,7 @@ video {
   height: 50vh;
   margin: 2rem 0 0 0;
 }
+
 
 .titre-1 {
   font-weight: 200;
@@ -469,6 +471,9 @@ video {
   border-radius: .5rem;
   padding: 2rem;
   gap: 1.5rem;
+}
+.icons-container{
+  margin-top: 0;
 }
 
 .icons-container .icons img {
@@ -571,8 +576,7 @@ video {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 50px;
-  margin-bottom: 10px; 
+
 }
 
 .tient-bloc {
@@ -581,17 +585,20 @@ video {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  margin: 0;
+  margin: 30px  20px; 
+
 }
 
 .tient-bloc .box-tient {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 31%;
-  height: 20%;
-  box-shadow: 0 .5rem 1rem rgb(0, 0, 0, .3);
+  width: 23%;
+  height: 33%;
+  box-shadow: 0 .5rem 1rem rgba(250, 168, 215, 0.3);
+  margin: 8px 2px;
 }
+
 
 .box-yeux {
   margin: 10px;
@@ -601,8 +608,8 @@ video {
   position: relative;
   display: block;
   margin: 40px 0px 0 50px;
-  width: 50%;
-  height: 30%;
+  width: 70%;
+  height: 50%;
 }
  .box-tient .img-coffret{
   position: relative;
@@ -613,12 +620,12 @@ video {
 }
 
 .box-tient .content {
+  position:static;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--yellow);
-
+  /* border: red 2px solid; */
+  margin-bottom: 15px;
 }
 
 .box-tient .content .btn {
@@ -632,12 +639,16 @@ video {
   border-radius: 10px;
   color: #FFF;
   font-size: 10px;
-  margin-bottom: 5px;
 }
 
 
 /************************************************* Responsive */
 @media (max-width:991px) {
+  .about_figure .img-single{
+    width: 150px;
+    height: 100px;
+  }
+  
   html {
     font-size: 55%;
   }
@@ -661,6 +672,17 @@ video {
 
 
 @media (max-width:769px) {
+
+  .box-tient .content .btn {
+    width:50px;
+    height: 20px;
+  }
+  .box-tient img {
+   margin-bottom: 10px;
+    width: 50%;
+    height: 30%;
+  }
+ 
 
   .box-acceuil span img {
     width: 70%;
@@ -762,6 +784,9 @@ video {
 }
 
 /* ***************************************************************************************************** */
+
+
+
 
 
 /* *****paiements*** */
@@ -897,12 +922,15 @@ video {
 
 
 section .list-group{
-  width: 600px;
+  width: 95%;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   font-size: larger;
 }
 
 /************************* single *********************/
+.article{
+  display:contents;
+}
 .about_figure .img-single{
   width: 400px;
   height: 350px;
@@ -911,7 +939,7 @@ section .list-group{
 .about{
   display: flex;
   justify-content: space-between;
-  /* border: #9f2c2c solid 10px; */
+ 
 }
 .title-single{
   font-size: 20px;
@@ -919,7 +947,7 @@ section .list-group{
 }
 
 .about-2{
-  margin-top: 80px;
+  margin-top: 100px;
   margin-left: 80px;
 }
 .button{
@@ -953,4 +981,4 @@ margin: 20px;
 font-weight: 400;
 line-height: 22px;
 color:black;
-}
+} 

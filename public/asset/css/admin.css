@@ -11,6 +11,10 @@ img {
     width: 100%;
     height: auto;
 }
+.adminProduit{
+    width: 150px;
+    height: 100px;
+}
 
 ul {
     list-style-type: none;

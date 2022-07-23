@@ -3,7 +3,13 @@
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
-    <h1>Categorie</h1>
+	<div class="container p-6">
+    <div class="row">
+				<div class="col-12 text-center mt-3 mb-5">
+					 <h1>Categorie</h1>
+				</div>
+			
+   
 
     <table class="table">
         <tbody>
@@ -21,10 +27,17 @@
             </tr>
         </tbody>
     </table>
+    <button type="button" class="btn btn-outline-success">
+				  <a href="{{ path('app_admin_categorie_index') }}">back to list</a>
+			</button>
+            <button type="button" class="btn btn-outline-success">
+				  <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+			</button>
 
-    <a href="{{ path('app_admin_categorie_index') }}">back to list</a>
+  
 
-    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+  
 
     {{ include('admin/admin_categorie/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

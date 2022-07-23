@@ -3,50 +3,51 @@
 {% block title %}Produit
 {% endblock %}
 {% block body %}
-
+<div class="container-sm">
 	<section class="about">
-		<div class="about-1">
-			{# <header class="about_header">
+		<div class="article">
 
-				<h2 class="title-single">{{ produit.titreProduit }}</h2>
-			</header> #}
-			<figure class="about_figure">
-				<img class="img-single" src="{{asset('upload/' ~ produit.imageProduit ) }}" alt="produit">
-			</figure>
-		</div>
-		<div class="about-2">
-			<article class="about_article">
-				<header class="header_article">
-					<h3 class="titre-produit">{{ produit.titreProduit }}</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star-half-alt"></i>
-					</div>
-				</header>
-				<br><br>
-				<ul>
-					<li>
+			<div class="about-1">
 
-						<span id="prix">Prix:
-							{{ produit.prixProduit }}</span>
-					</li>
+				<figure class="about_figure">
+					<img class="img-single" src="{{asset('upload/' ~ produit.imageProduit ) }}" alt="produit">
+				</figure>
+			</div>
+			<div class="about-2">
+				<article class="about_article">
+					<header class="header_article">
+						<h3 class="titre-produit">{{ produit.titreProduit }}</h3>
+						<div class="stars">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+					</header>
 					<br><br>
-					<br>
-					<li>
-						<span class="desc">description :{{ produit.descProduit }}</span>
-					</li>
+					<ul>
+						<li>
 
-				</ul>
-				<p class="button">
-					<a href="{{ path('app_cart', {'id': produit.id}) }}">ajouter au panier</a>
-				</p>
-			</article>
+							<span id="prix">Prix:
+								{{ produit.prixProduit }}</span>
+						</li>
+						<br><br>
+						<br>
+						<li>
+							<span class="desc">description :{{ produit.descProduit }}</span>
+						</li>
+
+					</ul>
+					<p class="button">
+						<a href="{{ path('app_cart', {'id': produit.id}) }}">ajouter au panier</a>
+					</p>
+				</article>
+			</div>
 		</div>
 	</section>
-<br><br><br><br>
+	</div>
+	<br><br><br><br>
 	<section class="reviews" id="reviews">
 
 		<h1 class="heading">
